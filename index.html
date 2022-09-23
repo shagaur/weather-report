@@ -191,8 +191,8 @@ of Simple CSS Waves-->
         let namevalue = data.name;
         let descValue = data.weather[0].description;
         let tempValue = data.main.temp;
-        tempValue = Number(tempValue - 273.15);
-        temValue = Math.round(tempValue);
+        tempValue = String(tempValue - 273.15);
+        tempValue = tempValue.split('.')[0];
         tempValue = String(tempValue)+" Celcius";
   
         name.innerHTML = namevalue;
