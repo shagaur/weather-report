@@ -125,10 +125,10 @@
       }
     }
     .input-field{
-      margin-top: -200px;
+      margin-top: -11rem;
     }
     .submit{
-      margin-top: 20px;
+      margin-top: 1rem;
     }
   </style>
 </head>
@@ -148,6 +148,7 @@ of Simple CSS Waves-->
       </div>
       <div class="submit">
         <button type="button" class="submit-button" id="submit">Get</button>
+        <button type="button" class="reset-button" id="reset">Reset</button>
       </div>
     </div>
     <div class="display-report">
@@ -183,6 +184,8 @@ of Simple CSS Waves-->
     let name = document.querySelector('.name');
     let desc = document.querySelector('.desc');
     let temp = document.querySelector('.temp');
+    let reset = document.querySelector('.reset-button');
+    let display = document.querySelector('.display-report');
   
     submit.addEventListener('click',()=>{
       fetch("https://api.openweathermap.org/data/2.5/weather?q="+city.value+"&appid=68bce03dbc40bba479de38cff16c84fe")
@@ -198,8 +201,15 @@ of Simple CSS Waves-->
         name.innerHTML = namevalue;
         desc.innerHTML = descValue;
         temp.innerHTML = tempValue;
+        display.style.display = "block";
+
       })
       .catch(err => console.log(err));
+    });
+
+    reset.addEventListener('click', ()=>{
+      display.style.display = "none";
+      city.value = "";
     })
    
   </script>
