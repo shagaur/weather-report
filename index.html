@@ -186,8 +186,10 @@ of Simple CSS Waves-->
     let temp = document.querySelector('.temp');
     let reset = document.querySelector('.reset-button');
     let display = document.querySelector('.display-report');
+    display.style.display = "none";
   
     submit.addEventListener('click',()=>{
+      display.style.display = "block";
       fetch("https://api.openweathermap.org/data/2.5/weather?q="+city.value+"&appid=68bce03dbc40bba479de38cff16c84fe")
       .then(response => response.json())
       .then(data => {
@@ -201,7 +203,6 @@ of Simple CSS Waves-->
         name.innerHTML = namevalue;
         desc.innerHTML = descValue;
         temp.innerHTML = tempValue;
-        display.style.display = "block";
 
       })
       .catch(err => console.log(err));
